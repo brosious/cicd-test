@@ -25,8 +25,8 @@ RUN wget https://github.com/digitalocean/doctl/releases/download/v1.62.0/doctl-1
 
 ## Set up entrypoint script
 
-COPY test.sh /test.sh
-RUN chmod +x /test.sh
+COPY test.sh /tmp/test.sh
+RUN chmod +x /tmp/test.sh
 
 
 ## Set up environment variables
@@ -35,4 +35,5 @@ ENV DIGITALOCEAN_ACCESS_TOKEN=""
 
 ## Entrypoint
 
-ENTRYPOINT ./test.sh
+ENTRYPOINT /tmp/test.sh
+CMD ["k10"]
